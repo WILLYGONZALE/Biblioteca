@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca</title>
+    <title>Página de Libro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,41 +13,37 @@
         header {
             background-color: #4CAF50;
             color: white;
-            padding: 1em 0;
-        }
-        header h1 {
-            margin: 0;
-            padding: 0;
+            padding: 15px 20px;
             text-align: center;
         }
-        nav {
+        header nav {
             display: flex;
             justify-content: center;
-            background-color: #333;
+            align-items: center;
         }
-        nav a {
+        header nav a {
             color: white;
-            padding: 1em;
             text-decoration: none;
-            text-align: center;
+            padding: 0 15px;
+            font-size: 18px;
         }
-        nav a:hover {
-            background-color: #575757;
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Biblioteca</h1>
+        <nav>
+            <a href="#libro">Libro</a>
+        </nav>
     </header>
-    <nav>
-        <a href="#libro">Libro</a>
-    </nav>
-    <main>
-        <section id="libro">
-            <h2>Sección de Libros</h2>
-            <p>Bienvenido a la sección de libros. Aquí encontrarás una gran variedad de libros para todos los gustos.</p>
-        </section>
-    </main>
+    <section id="libro">
+        <h1>Bienvenido a la Página del Libro</h1>
+        <p>Aquí encontrarás toda la información sobre nuestro libro destacado.</p>
+    </section>
 </body>
 </html>

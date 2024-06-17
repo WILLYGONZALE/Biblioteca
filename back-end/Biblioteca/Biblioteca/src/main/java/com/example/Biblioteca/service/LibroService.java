@@ -19,7 +19,7 @@ public class LibroService implements ILibroService {
 	@Override
 	public String save(Libro Libro) {
 		data.save(Libro);
-		return Libro.getId();
+		return Libro.getId_Libro();
 	}
 
 	@Override

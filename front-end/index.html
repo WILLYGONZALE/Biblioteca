@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Biblioteca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 18px;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .book-list {
+            margin-top: 20px;
+        }
+        .book-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #searchContainer {
+            margin-bottom: 20px;
+        }
+        #searchInput {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #searchButton {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        #searchButton:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function filterBooks() {
+            var input = document.getElementById('searchInput').value.toLowerCase();
+            var books = document.getElementsByClassName('book-item');
+            var matchFound = false;
+            for (var i = 0; i < books.length; i++) {
+                var title = books[i].getElementsByClassName('title')[0].textContent.toLowerCase();
+                var author = books[i].getElementsByClassName('author')[0].textContent.toLowerCase();
+                var genre = books[i].getElementsByClassName('genre')[0].textContent.toLowerCase();
+                var isbn = books[i].getElementsByClassName('isbn')[0].textContent.toLowerCase();
+                if (title === input || author === input || genre === input || isbn === input) {
+                    books[i].style.display = '';
+                    matchFound = true;
+                } else {
+                    books[i].style.display = 'none';
+                }
+            }
+            var errorMessage = document.getElementById('errorMessage');
+            if (!matchFound) {
+                errorMessage.textContent = 'No se encontraron coincidencias exactas.';
+            } else {
+                errorMessage.textContent = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#libro">Libro</a>
+            <a href="#">Usuario</a>
+            <a href="#">Préstamo</a>
+            <a href="#">Multas</a>
+        </nav>
+    </header>
+    <section id="libro">
+        <p>Aquí encontrarás toda la información sobre nuestros libros</p>
+        <div id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Busca por título, autor, género o ISBN...">
+            <button id="searchButton" onclick="filterBooks()">Buscar</button>
+        </div>
+        <div class="error-message" id="errorMessage"></div>
+        <!-- Libros -->
+        <div class="book-list">
+            <div class="book-item">
+                <h2 class="title">El Quijote</h2>
+                <p class="author">Miguel de Cervantes</p>
+                <p class="genre">Ficción</p>
+                <p class="isbn">978-3-16-148410-0</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
