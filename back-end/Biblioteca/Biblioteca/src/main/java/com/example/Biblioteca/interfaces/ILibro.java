@@ -8,12 +8,6 @@ import com.example.Biblioteca.models.Libro;
 @Repository
 public interface ILibro extends CrudRepository<Libro, String>  {
 	
-	@Query("SELECT p FROM Libro p WHERE "
-			+ "p.Titulo LIKE %?1% OR "
-			+ "p.Autor LIKE %?1% OR "
-			+ "p.ISBN LIKE %?1% OR "
-			+ "p.Genero LIKE %?1% OR "
-			+ "p.Numero_Ejemplares_Disponibles LIKE %?1% OR "
-			+ "p.Numero_Ejemplares_Ocupados LIKE %?1%  ")
-	List<Libro>filtroLibro(String filtro);
+	@Query("SELECT l FROM Libro l WHERE l.Titulo = ?1 OR l.Autor = ?2 OR l.Genero = ?3")
+	List<Libro>filtroLibro(String Titulo, String Autor, String Genero);
 }

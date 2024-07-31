@@ -30,8 +30,8 @@ public class LibroService implements ILibroService {
 	}
 	
 	@Override
-	public List<Libro> filtroLibro(String filtro) {
-		List <Libro> listaLibro=data.filtroLibro(filtro);
+	public List<Libro> filtroLibro(String Titulo, String Autor, String Genero) {
+		List <Libro> listaLibro=data.filtroLibro(Titulo, Autor, Genero);
 		return listaLibro;
 	}
 

@@ -9,8 +9,8 @@ import jakarta.persistence.Id;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy =GenerationType.UUID)
-	@Column(name="id", nullable=false, length = 36)
-	private String id;
+	@Column(name="id_Usuario", nullable=false, length = 36)
+	private String id_Usuario;
     
 	@Column(name="Nombre", nullable=false, length =20 )
 	private String Nombre;
@@ -26,13 +26,13 @@ public class Usuario {
 	private String Tipo_Usuario;
 
 
-	public String getid() {
-		return id;
+	public String getId_Usuario() {
+		return id_Usuario;
 	}
 
 
-	public void setid(String id) {
-		this.id = id;
+	public void setId_Usuario(String id_Usuario) {
+		this.id_Usuario = id_Usuario;
 	}
 
 
@@ -76,9 +76,12 @@ public class Usuario {
 	}
 
 
-	public Usuario(String id, String nombre, String direccion, String correo_Electronico, String tipo_Usuario) {
-		super();
-		this.id = id;
+	public Usuario() {
+	}
+
+
+	public Usuario(String id_Usuario, String nombre, String direccion, String correo_Electronico, String tipo_Usuario) {
+		this.id_Usuario = id_Usuario;
 		Nombre = nombre;
 		Direccion = direccion;
 		Correo_Electronico = correo_Electronico;
@@ -86,9 +89,6 @@ public class Usuario {
 	}
 
 
-	public Usuario() {
-		super();
-	}
 	
 	
 	
