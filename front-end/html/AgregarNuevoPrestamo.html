@@ -1,11 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Prestamo</title>
+    <title>Formulario de Préstamo de Libro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .exit-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #ff0000;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <div class="container">
+        <i class="fas fa-sign-out-alt exit-icon" onclick="window.location.href='Prestamos.html';"></i>
+        <h1>Registro de Préstamo</h1>
+        <form id="formularioPrestamo">
+            <div class="form-group">
+                <label for="fecha_prestamo">Fecha de Préstamo</label>
+                <input type="date" id="fecha_prestamo" name="fecha_prestamo" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_devolucion">Fecha de Devolución</label>
+                <input type="date" id="fecha_devolucion" name="fecha_devolucion" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+            <div class="form-group">
+                <label for="usuario">Usuario al que se le realiza el préstamo</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="libro">Libro prestado</label>
+                <input type="text" id="libro" name="libro" required>
+            </div>
+            <div class="form-group">
+                <label for="estado">Estado</label>
+                <select id="estado" name="estado" required>
+                    <option value="prestamo">Préstamo</option>
+                    <option value="entregado">Entregado</option>
+                    <option value="cancelado">Cancelado</option>
+                </select>
+            </div>
+            <button type="submit">Registrar Préstamo</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('formularioPrestamo').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Préstamo registrado exitosamente');
+        });
+    </script>
+
 </body>
 </html>
