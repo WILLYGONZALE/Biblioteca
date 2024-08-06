@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo Libro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,7 +64,7 @@
     <div class="container">
         <i class="fas fa-sign-out-alt exit-icon" onclick="window.location.href='libros.html';"></i>
         <h1>Agregar Libro</h1>
-        <form id="formularioLibro">
+        <form id="formularioLibro" onsubmit="agregarLibro(event)">
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" id="titulo" name="titulo" required>
@@ -73,31 +74,28 @@
                 <input type="text" id="autor" name="autor" required>
             </div>
             <div class="form-group">
-                <label for="isbn">ISBN</label>
-                <input type="text" id="isbn" name="isbn" required>
+                <label for="ISBN">ISBN</label>
+                <input type="text" id="ISBN" name="ISBN" required>
             </div>
             <div class="form-group">
                 <label for="genero">Género</label>
                 <input type="text" id="genero" name="genero" required>
             </div>
             <div class="form-group">
-                <label for="num_ejemplares_disponibles">Número de Ejemplares Disponibles</label>
-                <input type="number" id="num_ejemplares_disponibles" name="num_ejemplares_disponibles" required>
+                <label for="numero_ejemplares_disponibles">Número de Ejemplares Disponibles</label>
+                <input type="number" id="numero_ejemplares_disponibles" name="numero_ejemplares_disponibles" required>
             </div>
             <div class="form-group">
-                <label for="num_ejemplares_ocupados">Número de Ejemplares Ocupados</label>
-                <input type="number" id="num_ejemplares_ocupados" name="num_ejemplares_ocupados" required>
+                <label for="numero_ejemplares_ocupados">Número de Ejemplares Ocupados</label>
+                <input type="number" id="numero_ejemplares_ocupados" name="numero_ejemplares_ocupados" required>
             </div>
-            <button type="submit">Agregar Libro</button>
+            <button class="btn btn-success" type="submit">Enviar</button>
+            <button class="btn btn-secondary" type="button" onclick="limpiarFormulario()">Limpiar</button>
         </form>
     </div>
 
-    <script>
-        document.getElementById('formularioLibro').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Libro agregado exitosamente');
-        });
-    </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="./js/Libro.js"></script>
 </body>
 </html>
